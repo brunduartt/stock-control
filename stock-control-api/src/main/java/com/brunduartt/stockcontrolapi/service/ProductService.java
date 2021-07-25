@@ -1,8 +1,8 @@
 package com.brunduartt.stockcontrolapi.service;
 
-import com.brunduartt.stockcontrolapi.criteria.ProductCriteria;
 import com.brunduartt.stockcontrolapi.domain.Product;
 import com.brunduartt.stockcontrolapi.domain.Product_;
+import com.brunduartt.stockcontrolapi.domain.criteria.ProductCriteria;
 import com.brunduartt.stockcontrolapi.domain.dto.ProductDTO;
 import com.brunduartt.stockcontrolapi.domain.mapper.ProductMapper;
 import com.brunduartt.stockcontrolapi.repository.ProductRepository;
@@ -31,8 +31,13 @@ public class ProductService extends EntityService<Product, ProductDTO, ProductMa
         Specification<Product> specification = Specification.where(null);
         if(criteria != null) {
             if(criteria.getName() != null && !criteria.getName().isEmpty()) {
+                specification = specification.and(
+                        likeUpperSpecification(productRoot -> productRoot.get(Product_.name), criteria.getName())
+                );
+            }
+            if(criteria.getId() != null) {
                 specification = specification.and((
-                        (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.like(root.get(Product_.name), criteria.getName())
+                        (root, criteriaQuery, criteriaBuilder) -> criteriaBuilder.equal(root.get(Product_.id), criteria.getId())
                 ));
             }
         }

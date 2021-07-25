@@ -2,13 +2,17 @@ package com.brunduartt.stockcontrolapi.service;
 
 import com.brunduartt.stockcontrolapi.domain.mapper.EntityMapper;
 import com.brunduartt.stockcontrolapi.repository.EntityRepository;
+import com.brunduartt.stockcontrolapi.util.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.domain.Specification;
 
+import javax.persistence.criteria.Expression;
+import javax.persistence.criteria.Root;
 import java.util.Optional;
+import java.util.function.Function;
 
 /**
  * Default service with simple methods to save and find an entity
@@ -75,4 +79,16 @@ public class EntityService<
         repository.deleteById(id);
     }
 
+    protected Specification<ENTITY> likeUpperSpecification(Function<Root<ENTITY>, Expression<String>> metaclassFunction, final String value) {
+        return (root, query, builder) ->
+                builder.like(
+                        builder.upper(
+                                builder.function("REPLACE", String.class,
+                                        builder.function("unaccent", String.class, metaclassFunction.apply(root)),
+                                        builder.literal(" "), builder.literal("")
+                                )
+                        ),
+                        "%"+StringUtils.Unaccent(value.replaceAll(" ","").toUpperCase())+'%'
+                );
+    }
 }

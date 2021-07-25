@@ -7,6 +7,7 @@ import { ProductService } from './product.service';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteEntityDialog } from 'src/app/shared/delete-dialog/delete-dialog.component';
 import { ITEMS_PER_PAGE } from 'src/app/app-contants';
+import { FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'product',
@@ -19,12 +20,16 @@ export class ProductsComponent implements OnInit {
   totalItems = 0;
   itemsPerPage = ITEMS_PER_PAGE;
   page!: number;
-
+  searchForm = this.fb.group({
+    'name': [],
+    'id': []
+  });
   constructor(
     protected productService: ProductService,
     protected activatedRoute: ActivatedRoute,
     protected modalService: NgbModal,
-    protected router: Router
+    protected router: Router,
+    private fb: FormBuilder
   ) {}
 
   ngOnInit(): void {
@@ -38,11 +43,13 @@ export class ProductsComponent implements OnInit {
     })
   }
 
+
   loadPage(page?: number): void {
     const pageToLoad: number = page || this.page || 1;
 
     this.productService
       .query({
+        ...this.searchForm.value,
         page: pageToLoad - 1,
         size: this.itemsPerPage,
       })

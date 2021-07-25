@@ -1,6 +1,6 @@
 package com.brunduartt.stockcontrolapi.resource;
 
-import com.brunduartt.stockcontrolapi.criteria.ProductCriteria;
+import com.brunduartt.stockcontrolapi.domain.criteria.ProductCriteria;
 import com.brunduartt.stockcontrolapi.domain.dto.ProductDTO;
 import com.brunduartt.stockcontrolapi.service.ProductService;
 import com.brunduartt.stockcontrolapi.util.RequestUtils;
