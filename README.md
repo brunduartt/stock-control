@@ -7,7 +7,7 @@ Para rodar a aplicação, deve-se abrir a parta stock-control-web e rodar o coma
 ng serve
 ```
 
-Para agilizar o desenvolvimento, foi-se gerado o projeto com Angular CLI.
+Para agilizar o desenvolvimento, foi-se gerado o projeto com Angular CLI. Utilizei a biblioteca do Bootstrap pra Angular (ng-bootstrap) para poder utilizar alguns componentes (modal) e para layout.
 O projeto está dividido entre os seguintes diretórios:
 - *content*
   
