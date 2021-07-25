@@ -41,7 +41,7 @@ export const productRoutes: Routes = [
     path: 'new',
     component: ProductDetailComponent,
     data: {
-      pageTitle: "Produto"
+      pageTitle: "Novo produto"
     }
   },
   {
@@ -51,7 +51,7 @@ export const productRoutes: Routes = [
       product: ProductResolve
     },
     data: {
-      pageTitle: "Produto"
+      pageTitle: "Editar produto"
     }
   }
   
