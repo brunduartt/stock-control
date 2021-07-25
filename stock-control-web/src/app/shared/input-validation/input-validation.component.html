@@ -1,0 +1,10 @@
+<input [type]="type" *ngIf="type !== 'currency'" class="form-control" [formControl]="control" (blur)="onTouched()"/>
+<input type="text" currencyMask *ngIf="type === 'currency'" class="form-control" [formControl]="control" (blur)="onTouched()" [options]="{ prefix: 'R$ ', thousands: '.', decimal: ',' }"/>
+<div *ngIf="control.invalid && (control.dirty || control.touched)" >
+    <small class="form-text text-danger" *ngIf="control?.errors?.required">
+    Campo obrigatório.
+    </small>
+    <small class="form-text text-danger" *ngIf="control?.errors?.min">
+        O campo deve ser maior que {{control?.errors?.min.min}}
+    </small>
+</div>

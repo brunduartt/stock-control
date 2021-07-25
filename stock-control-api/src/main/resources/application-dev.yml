@@ -1,0 +1,37 @@
+# ===================================================================
+# Spring Boot configuration for the "dev" profile.
+# ===================================================================
+logging:
+  level:
+    ROOT: DEBUG
+    com.brunduartt.stockcontrolapi: DEBUG
+
+spring:
+  config:
+    activate:
+      on-profile: "dev"
+  jackson:
+    serialization:
+      indent-output: true
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:postgresql://ec2-52-23-40-80.compute-1.amazonaws.com:5432/dfj3553pg0e9jp
+    username: owavivzxtuepjn
+    password: 2c40290c778c693c942b4bcb84342f5aad36dea1f6a5c0af22db2466d068a8b1
+    #url: jdbc:postgresql://localhost:5432/stockcontroldb
+    #username: postgres
+    #password: sa
+    hikari:
+      poolName: Hikari
+      auto-commit: false
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQL94Dialect
+    show-sql: true
+    properties:
+      hibernate.id.new_generator_mappings: true
+      hibernate.generate_statistics: false
+      hibernate.hbm2ddl.auto: update
+    hibernate:
+      ddl-auto: update
+server:
+  port: 8080

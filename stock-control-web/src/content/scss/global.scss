@@ -1,0 +1,58 @@
+@import 'bootstrap-variables';
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/bootstrap';
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: normal;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: 'Ubuntu';
+    src: url('../fonts/Ubuntu-Light.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 100;
+}
+
+* {
+    font-family: 'Ubuntu', sans-serif !important;
+}
+html {
+    height: 100%;
+}
+body {
+    height: 100%;
+    margin: 0px;
+    background-color: #e5e5e5;
+}
+
+.page-header {
+    padding-bottom: 15px;
+    border-bottom: 1px solid #cecece;
+    margin: 10px 0px;
+}
+
+.pagination {
+    margin-bottom: 0px;
+}
+
+.text-primary {
+    color: $primary;
+}
+
+.text-secondary {
+    color: $secondary;
+}
+
+.text-bold {
+    font-weight: bolder;
+}

@@ -1,0 +1,34 @@
+@import '../../../content/scss/mixin.scss';
+.header-wrapper {
+    height: 50px;
+    background: var(--primary);    
+    color: white;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .dti-logo {
+        left: 10px;
+        position: absolute;
+        img {
+            height: 40px;
+        }
+    }
+    .header-title {
+        @include mobile {
+            display: none;
+        }
+    }
+    .menu-items {
+        position: absolute;
+        display: flex;
+        align-items: center;
+        height: 100%;
+        right: 10px;
+        a {
+            text-decoration: none;
+            color: white;
+            margin-right: 20px;
+        }
+    }
+}

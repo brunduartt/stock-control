@@ -1,0 +1,13 @@
+/*
+* Bootstrap overrides https://getbootstrap.com/docs/4.0/getting-started/theming/
+* All values defined in bootstrap source
+* https://github.com/twbs/bootstrap/blob/v4-dev/scss/_variables.scss can be overwritten here
+* Make sure not to add !default to values here
+*/
+
+:root {
+    --primary: #00b2bc;
+    --secondary: #8257e5;
+}
+$primary: #00b2bc;
+$secondary: #8257e5;

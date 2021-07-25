@@ -1,0 +1,22 @@
+<form *ngIf="entityId" name="deleteForm" (ngSubmit)="confirmDelete()">
+    <div class="modal-header">
+        <h4 class="modal-title">Confirmar operação</h4>
+
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="cancel()">&times;</button>
+    </div>
+
+    <div class="modal-body">
+        <p>Tem certeza que deseja deletar {{deleteText || entityId}}?</p>
+    </div>
+
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="cancel()">
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span>Cancelar</span>
+        </button>
+
+        <button type="submit" class="btn btn-danger">
+            <fa-icon icon="times"></fa-icon>&nbsp;<span>Deletar</span>
+        </button>
+    </div>
+</form>

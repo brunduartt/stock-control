@@ -1,0 +1,41 @@
+@import '../../../content/scss/mixin.scss';
+.products-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+    @include mobile {
+        justify-content: center;
+    }
+    .product-container {
+        min-width: 280px;
+        background: rgb(255,255,255);
+        border: 1px solid white;
+        background: linear-gradient(180deg, rgba(255,255,255,1) 80%, rgba(236,236,236,1) 100%);
+        border-radius: 7px;
+        margin: 10px;
+        box-shadow: 1px 1px 1px #00000038;
+        overflow: hidden;
+        .product-header {
+            background: var(--secondary);
+            color: white;
+            padding: 5px;
+            font-weight: bold;
+            font-size: 13pt;
+        }
+        .product-body {
+            padding: 5px 10px 10px;
+            .info {
+                font-weight: 100;
+                margin-left: 5px;
+            }
+        }
+    }
+}
+.btn-wrapper {
+    display: flex;
+    margin: 5px 0px;
+    .btn {
+        margin: 5px;
+    }
+}
