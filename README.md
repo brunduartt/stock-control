@@ -30,18 +30,16 @@ O projeto está dividido entre os seguintes diretórios:
     - **entity-service:** Decidi criar este serviço genérico como base para todas os serviços de todos os tipos de entidades que existem, onde pode-se apenas extender para ter acesso aos métodos de request pro servidor (que tendem a ser iguais independente da entidade)
     - **delete-dialog:** Componente genérico para um dialog de confirmação para deletar uma entidade
     - **input-validation:** Componente geral para inputs que possuem mensagens de erro de validação
-### Servidor e Banco
-Para o banco foi utilizado PostgreSQL por questão de intimidade. O servidor foi desenvolvido utilizando Java com Spring Boot, Hibernate e JPA, já que são tecnologias as quais eu estou habituado e que considero que facilitam bastante o desenvolvimento. Utilizei MapStruct para gerar o mapeamento do DTO com a entidade de forma automática.
+
+
+## Servidor e Banco
+Para o banco foi utilizado PostgreSQL por questão de intimidade e está rodando no Heroku para permitir a demonstração. O servidor foi desenvolvido utilizando Java com Spring Boot, Hibernate e JPA, já que são tecnologias as quais eu estou habituado e que considero que facilitam bastante o desenvolvimento. Utilizei MapStruct para gerar o mapeamento do DTO com a entidade de forma automática.
 Para iniciar o servidor, deve-se executar o seguinte comando na pasta stock-control-api:
 ```
 mvnw spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
-
-
-- *content*
-
-  Contém os assets da aplicação (fontes, estilos, imagens)
+A divisão do projeto está definida da seguinte forma:
 
 - src/main/java/com/brunduartt/stockcontrolapi
   - **config**
